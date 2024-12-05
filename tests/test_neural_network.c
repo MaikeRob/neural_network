@@ -42,7 +42,7 @@ void test_add_fist_layer() {
     TEST_ASSERT_EQUAL("relu", model.layers[0].activation);
     TEST_ASSERT_EQUAL(1, model.num_layers);
     TEST_ASSERT_EQUAL(3, model.layers[0].num_neurons);
-    TEST_ASSERT_EQUAL(2184, model.layers[0].previous_connections);
+    TEST_ASSERT_EQUAL(2184, model.layers[0].num_connections);
 }
 
 void test_add_second_layer() {
@@ -52,7 +52,7 @@ void test_add_second_layer() {
     TEST_ASSERT_EQUAL(SIGMOID, model.layers[1].activation);
     TEST_ASSERT_EQUAL(2, model.num_layers);
     TEST_ASSERT_EQUAL(5, model.layers[1].num_neurons);
-    TEST_ASSERT_EQUAL(50, model.layers[1].previous_connections);
+    TEST_ASSERT_EQUAL(50, model.layers[1].num_connections);
 }
     
 void test_add_third_layer() {
@@ -63,7 +63,7 @@ void test_add_third_layer() {
     TEST_ASSERT_EQUAL(RELU, model.layers[2].activation);
     TEST_ASSERT_EQUAL(3, model.num_layers);
     TEST_ASSERT_EQUAL(3, model.layers[2].num_neurons);
-    TEST_ASSERT_EQUAL(15, model.layers[2].previous_connections);
+    TEST_ASSERT_EQUAL(15, model.layers[2].num_connections);
 }
 
 

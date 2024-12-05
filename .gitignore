@@ -1,4 +1,6 @@
 output/
+main_debug
+test_runner
 
 # Prerequisites
 *.d
