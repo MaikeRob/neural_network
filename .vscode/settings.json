@@ -1,0 +1,6 @@
+{
+    "makefile.configureOnOpen": true,
+    "files.associations": {
+        "neural_network.h": "c"
+    }
+}

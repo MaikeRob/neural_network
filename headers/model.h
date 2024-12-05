@@ -12,16 +12,16 @@ typedef struct neuron{
 
 typedef struct layer{
     neuron_t *neurons;
-    connection_t *connections;
-    int num_neurons;
-    int num_connections;
+    connection_t *previous_connections;
+    unsigned int num_neurons;
+    unsigned int num_connections;
     const char *activation;
 } layer_t;
 
 typedef struct model{
-    int input_size;
+    unsigned int input_size;
     layer_t *layers;
-    int num_layers;
+    unsigned int num_layers;
 } model_t;
 
 #endif

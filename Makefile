@@ -17,8 +17,7 @@ main: main.c $(OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 test: $(OBJ) $(TESTS) $(UNITY_SRC)
-	$(CC) $(CFLAGS) -o test_runner $(OBJ) $(TESTS) $(UNITY_SRC)
-	./test_runner
+	$(CC) -Iinclude -Itests/unity -o test_runner $(OBJ) $(TESTS) $(UNITY_SRC)
 
 clean:
 	rm -f src/*.o test_runner main main_debug
