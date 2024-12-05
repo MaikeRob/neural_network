@@ -45,12 +45,12 @@ void add_layer(model_t *model, unsigned int num_neurons, const char *activation)
         last_layer_size = model->layers[model->num_layers - 1].num_neurons;
     }
 
-    layer_t *updated_layer = (layer_t*)realloc(model->layers, (model->num_layers + 1) * sizeof(layer_t));
-    if(updated_layer == NULL) {
+    layer_t *updated_layers = (layer_t*)realloc(model->layers, (model->num_layers + 1) * sizeof(layer_t));
+    if(updated_layers == NULL) {
         //TODO Handle error
         exit(1);
     }
-    model->layers = updated_layer;
+    model->layers = updated_layers;
 
     layer_t *new_layer = &model->layers[model->num_layers];
 
