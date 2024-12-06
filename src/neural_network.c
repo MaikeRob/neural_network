@@ -5,24 +5,17 @@
 
 
 model_t create_model(unsigned int input_size) {
-
     if(input_size <= 0) {
         // TODO: Handle error
         exit(1);
     }
 
-    model_t *model = (model_t *)malloc(sizeof(model_t));
+    model_t model;
+    model.input_size = input_size;
+    model.num_layers = 0;
+    model.layers = NULL;
 
-    if(model == NULL) {
-        //TODO: Handle error    
-        exit(1);
-    }
-
-    model->input_size = input_size;
-    model->num_layers = 0;
-    model->layers = NULL;
-
-    return *model;
+    return model;
 }
 
 void destroy_model(model_t *model) {
@@ -33,7 +26,6 @@ void destroy_model(model_t *model) {
         }
         free(model->layers);
     }
-    free(model);
 }
 
 void add_layer(model_t *model, unsigned int num_neurons, const char *activation){
