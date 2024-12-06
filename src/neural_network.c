@@ -5,10 +5,8 @@
 
 
 model_t create_model(unsigned int input_size) {
-    if(input_size <= 0) {
-        // TODO: Handle error
-        exit(1);
-    }
+
+    // TODO: Validate input
 
     model_t model;
     model.input_size = input_size;
@@ -19,6 +17,9 @@ model_t create_model(unsigned int input_size) {
 }
 
 void destroy_model(model_t *model) {
+
+    // TODO: Validate input
+
     if (model->layers != NULL) {
         for(unsigned int i = 0; i < model->num_layers; i++) {
             free(model->layers[i].neurons);
@@ -29,6 +30,8 @@ void destroy_model(model_t *model) {
 }
 
 void add_layer(model_t *model, unsigned int num_neurons, const char *activation){
+
+    // TODO: Validate input
 
     unsigned int last_layer_size;
     if(model->num_layers == 0) {
