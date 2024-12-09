@@ -43,6 +43,7 @@ void add_layer(model_t *model, unsigned int num_neurons, const char *activation)
     layer_t *updated_layers = (layer_t*)realloc(model->layers, (model->num_layers + 1) * sizeof(layer_t));
     if(updated_layers == NULL) {
         //TODO Handle error
+        printf("Error reallocating memory\n");
         exit(1);
     }
     model->layers = updated_layers;
@@ -53,6 +54,7 @@ void add_layer(model_t *model, unsigned int num_neurons, const char *activation)
     new_layer->neurons = (neuron_t*)malloc(num_neurons * sizeof(neuron_t));
     if(new_layer->neurons == NULL) {
         //TODO Handle error
+        printf("Error allocating memory\n");
         exit(1);
     }
     for(unsigned int i = 0; i < num_neurons; i++) {
@@ -64,6 +66,7 @@ void add_layer(model_t *model, unsigned int num_neurons, const char *activation)
     new_layer->previous_connections = (connection_t*)malloc(num_connections * sizeof(connection_t));
     if(new_layer->previous_connections == NULL) {
         //TODO Handle error
+        printf("Error allocating memory\n");
         exit(1);
     }
     for(unsigned int i = 0; i < new_layer->num_connections; i++) {
