@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "../headers/model.h"
 #include "../headers/activation.h"
 #include "../headers/neural_network.h"
