@@ -76,3 +76,8 @@ void add_layer(model_t *model, unsigned int num_neurons, const char *activation)
     new_layer->activation = activation;
     model->num_layers++;
 }
+
+void predict(model_t model, double *input) {
+
+    
+}
