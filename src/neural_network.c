@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "../headers/model.h"
 #include "../headers/activation.h"
 #include "../headers/neural_network.h"
@@ -75,4 +76,9 @@ void add_layer(model_t *model, unsigned int num_neurons, const char *activation)
 
     new_layer->activation = activation;
     model->num_layers++;
+}
+
+void predict(model_t model, double *input) {
+
+    
 }

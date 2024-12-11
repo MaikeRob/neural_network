@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include "headers/neural_network.h"
+#include "libs/generic_openblas/include/cblas.h"
+
 
 int main(){
 
