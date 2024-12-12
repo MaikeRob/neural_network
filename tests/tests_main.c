@@ -14,6 +14,7 @@ extern void test_create_model_big_input();
 extern void test_add_fist_layer();
 extern void test_add_second_layer();
 extern void test_add_third_layer();
+extern void test_add_last_layer();
 
 // activation tests
 extern void test_relu();
@@ -30,6 +31,7 @@ void main(){
     RUN_TEST(test_add_fist_layer);
     RUN_TEST(test_add_second_layer);
     RUN_TEST(test_add_third_layer);
+    RUN_TEST(test_add_last_layer);
 
     // activation tests
     RUN_TEST(test_relu);

@@ -14,6 +14,7 @@ model_t create_model(unsigned int input_size) {
     model.input_size = input_size;
     model.num_layers = 0;
     model.layers = NULL;
+    model.is_complete = false;
 
     return model;
 }
