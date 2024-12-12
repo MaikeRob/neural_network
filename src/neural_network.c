@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "../headers/model.h"
 #include "../headers/activation.h"
 #include "../headers/neural_network.h"
@@ -79,9 +80,19 @@ void add_layer(model_t *model, unsigned int num_neurons, const char *activation)
     model->num_layers++;
 }
 
+void add_exit_layer(model_t *model, unsigned int num_neurons, const char *activation){
+    
+    // TODO Validate input
+
+    add_layer(model, num_neurons, activation);
+    // TODO Handle possible error
+
+    model->is_complete = true;
+}
+
 double *predict(model_t model, double *input) {
 
     // TODO Validate input
 
-
+    
 }

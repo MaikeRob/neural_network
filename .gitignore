@@ -1,6 +1,7 @@
 output/
 main_debug
 test_runner
+settings.json
 
 # Prerequisites
 *.d
