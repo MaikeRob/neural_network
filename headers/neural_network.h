@@ -11,6 +11,8 @@ void destroy_model(model_t *model); // TODO
 
 void add_layer(model_t *model, unsigned int num_neurons, const char *activation); // TODO
 
+void add_exit_layer(model_t *model, unsigned int num_neurons, const char *activation); // TODO
+
 void train(); // TODO
 
 double *predict(model_t model, double *input); // TODO

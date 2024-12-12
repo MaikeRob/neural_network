@@ -1,6 +1,6 @@
 #ifndef MODEL_H
 #define MODEL_H
-
+#include <stdbool.h>
 
 typedef struct connection{
     double weight;
@@ -23,6 +23,7 @@ typedef struct model{
     unsigned int input_size;
     layer_t *layers;
     unsigned int num_layers;
+    bool is_complete;
 } model_t;
 
 #endif
