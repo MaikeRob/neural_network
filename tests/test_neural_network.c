@@ -1,14 +1,6 @@
 #include "unity/unity.h"
 #include "../headers/neural_network.h"
 
-void setUp(void) {
-    // set stuff up here
-}
-
-void tearDown(void) {
-    // clean stuff up here
-}
-
 /*----------Testes da criação de modelo --------*/
 
 void test_create_model_small_input() {
@@ -24,15 +16,6 @@ void test_create_model_big_input() {
     TEST_ASSERT_EQUAL(0, model.num_layers);
     TEST_ASSERT_NULL(model.layers);
 }
-
-// void test_create_model_zero_input() {
-//     model_t model = create_model(0);
-// }
-
-// void test_create_model_negative_input() {
-//     model_t model = create_model(-2);
-// }
-
 
 /*----------Testes da adição de camadas --------*/
 
@@ -66,16 +49,3 @@ void test_add_third_layer() {
     TEST_ASSERT_EQUAL(15, model.layers[2].num_connections);
 }
 
-
-void main(){
-    UNITY_BEGIN();
-    RUN_TEST(test_create_model_small_input);
-    RUN_TEST(test_create_model_big_input);
-    // RUN_TEST(test_create_model_zero_input);
-    // RUN_TEST(test_create_model_negative_input);
-    RUN_TEST(test_add_fist_layer);
-    RUN_TEST(test_add_second_layer);
-    RUN_TEST(test_add_third_layer);
-
-    return UNITY_END();
-}

@@ -16,6 +16,7 @@ typedef struct layer{
     unsigned int num_neurons;
     unsigned int num_connections;
     const char *activation;
+    double (*activation_function)(double);
 } layer_t;
 
 typedef struct model{

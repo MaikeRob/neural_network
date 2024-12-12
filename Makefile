@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Iinclude -Itests/unity -Wall -Wextra 
-LFLAGS = -lopenblas
+LFLAGS = -lm -lopenblas -Llibs/generic_openblas/lib
 #-Wall e -Wextra ativam avisos de compilação adicionais
 
 SRC = $(wildcard src/*.c)
