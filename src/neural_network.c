@@ -95,5 +95,21 @@ double *predict(model_t model, double *input) {
 
     // TODO Validate input
 
-    
+    double *output = (double*)malloc(model.layers[model.num_layers - 1].num_neurons * sizeof(double));
+    if(output == NULL) {
+        //TODO Handle error
+        printf("Error allocating memory\n");
+        exit(1);
+    }
+
+    for(unsigned int i; i < model.num_layers; i++) {
+        
+        double current_inputs[model.layers[i-1].num_neurons];
+        for(unsigned int j; j < model.layers[i-1].num_neurons; j++){
+
+            double current_wheights[model.layers[i-1].num_neurons];
+        }
+                
+    }
+
 }
