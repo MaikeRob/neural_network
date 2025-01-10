@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <cblas.h>
 #include "../headers/model.h"
 #include "../headers/activation.h"
 #include "../headers/neural_network.h"
@@ -102,12 +103,22 @@ double *predict(model_t model, double *input) {
         exit(1);
     }
 
+    // First Layer
+    double input_size = sizeof(input) / sizeof(input[0]);
+    double first_net_input = cblas_ddot(input_size, input, 1, model.layers[0].);
+
+
     for(unsigned int i; i < model.num_layers; i++) {
         
-        double current_inputs[model.layers[i-1].num_neurons];
-        for(unsigned int j; j < model.layers[i-1].num_neurons; j++){
+        int current_inputs_size = (int)model.layers[i-1].num_neurons;
+        double current_inputs_array[model.layers[i-1].num_neurons];
+        double current_outputs_array[model.layers[i].num_neurons];
 
-            double current_wheights[model.layers[i-1].num_neurons];
+        for(unsigned int j; j < model.layers[i].num_neurons; j++){
+
+            //double net_input = cblas_ddot(current_inputs_size, current_inputs_array, 1, , 1) + model.layers[i].neurons[j].bias;
+    
+            //current_outputs_array[i] = model.layers[i].activation_function(net_input);
         }
                 
     }

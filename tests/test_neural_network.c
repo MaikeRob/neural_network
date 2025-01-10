@@ -18,6 +18,14 @@ void test_create_model_big_input() {
     TEST_ASSERT_EQUAL(false, model.is_complete);
 }
 
+void test_activation_functions_from_main() {
+    model_t model = create_model(5);
+    add_layer(&model, 3, RELU);
+    add_layer(&model, 3, SIGMOID);
+    TEST_ASSERT_EQUAL(10, model.layers[0].activation_function(10));
+    TEST_ASSERT_EQUAL(0.5, model.layers[1].activation_function(0));
+}
+
 /*----------Testes da adição de camadas --------*/
 
 void test_add_fist_layer() {

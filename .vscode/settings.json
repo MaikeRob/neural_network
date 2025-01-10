@@ -1,7 +1,8 @@
 {
     "makefile.configureOnOpen": true,
     "files.associations": {
-        "neural_network.h": "c"
+        "neural_network.h": "c",
+        "activation.h": "c"
     },
     "github.copilot.editor.enableAutoCompletions": false,
 }

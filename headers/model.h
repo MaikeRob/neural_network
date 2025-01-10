@@ -8,6 +8,7 @@ typedef struct connection{
 
 typedef struct neuron{
     double bias;
+    connection_t *previous_connections;
 } neuron_t;
 
 typedef struct layer{

@@ -15,6 +15,7 @@ extern void test_add_fist_layer();
 extern void test_add_second_layer();
 extern void test_add_third_layer();
 extern void test_add_last_layer();
+extern void test_activation_functions_from_main();
 
 // activation tests
 extern void test_relu();
@@ -32,6 +33,7 @@ void main(){
     RUN_TEST(test_add_second_layer);
     RUN_TEST(test_add_third_layer);
     RUN_TEST(test_add_last_layer);
+    RUN_TEST(test_activation_functions_from_main);
 
     // activation tests
     RUN_TEST(test_relu);
