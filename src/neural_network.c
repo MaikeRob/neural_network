@@ -25,8 +25,13 @@ void destroy_model(model_t *model) {
 
     if (model->layers != NULL) {
         for(unsigned int i = 0; i < model->num_layers; i++) {
+            unsigned int num_neurons = model->layers[i].num_neurons;
+
+            for(unsigned int j = 0; j < num_neurons; j++){
+                free(model->layers[i].neurons[j].previous_connections);
+            }
+
             free(model->layers[i].neurons);
-            free(model->layers[i].previous_connections);
         }
         free(model->layers);
     }
@@ -60,20 +65,24 @@ void add_layer(model_t *model, unsigned int num_neurons, const char *activation)
         printf("Error allocating memory\n");
         exit(1);
     }
-    for(unsigned int i = 0; i < num_neurons; i++) {
-        new_layer->neurons[i].bias = 0.0;
-    }
 
-    unsigned int num_connections = num_neurons * last_layer_size;
-    new_layer->num_connections = num_connections;
-    new_layer->previous_connections = (connection_t*)malloc(num_connections * sizeof(connection_t));
-    if(new_layer->previous_connections == NULL) {
-        //TODO Handle error
-        printf("Error allocating memory\n");
-        exit(1);
-    }
-    for(unsigned int i = 0; i < new_layer->num_connections; i++) {
-        new_layer->previous_connections[i].weight = 0.0;
+
+    unsigned int num_previous_connections = last_layer_size;
+
+    for(unsigned int i = 0; i < num_neurons; i++){
+        new_layer->neurons[i].bias = 0.0;
+
+        new_layer->neurons[i].previous_connections = (connection_t*)malloc(num_previous_connections * sizeof(connection_t));
+        if(new_layer->neurons[i].previous_connections == NULL){
+            //TODO Handle error
+            printf("Error allocating memory\n");
+            exit(1);
+        }
+
+        for(unsigned int j = 0; j < num_previous_connections; j++){
+
+            new_layer->neurons[i].previous_connections[i].weight = 0.0;
+        }
     }
 
     new_layer->activation = activation;
@@ -82,7 +91,7 @@ void add_layer(model_t *model, unsigned int num_neurons, const char *activation)
 }
 
 void add_exit_layer(model_t *model, unsigned int num_neurons, const char *activation){
-    
+
     // TODO Validate input
 
     add_layer(model, num_neurons, activation);
@@ -103,13 +112,13 @@ double *predict(model_t model, double *input) {
     }
 
     for(unsigned int i; i < model.num_layers; i++) {
-        
+
         double current_inputs[model.layers[i-1].num_neurons];
         for(unsigned int j; j < model.layers[i-1].num_neurons; j++){
 
             double current_wheights[model.layers[i-1].num_neurons];
         }
-                
+
     }
 
 }

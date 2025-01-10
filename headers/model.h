@@ -8,13 +8,13 @@ typedef struct connection{
 
 typedef struct neuron{
     double bias;
+    unsigned int num_previous_connections;
+    connection_t *previous_connections;
 } neuron_t;
 
 typedef struct layer{
     neuron_t *neurons;
-    connection_t *previous_connections;
     unsigned int num_neurons;
-    unsigned int num_connections;
     const char *activation;
     double (*activation_function)(double);
 } layer_t;
