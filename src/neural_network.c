@@ -70,7 +70,9 @@ void add_layer(model_t *model, unsigned int num_neurons, const char *activation)
     unsigned int num_previous_connections = last_layer_size;
 
     for(unsigned int i = 0; i < num_neurons; i++){
-        new_layer->neurons[i].bias = 0.0;
+        new_layer->neurons[i].bias = 3.0;
+
+        new_layer->neurons[i].num_previous_connections = num_previous_connections;
 
         new_layer->neurons[i].previous_connections = (connection_t*)malloc(num_previous_connections * sizeof(connection_t));
         if(new_layer->neurons[i].previous_connections == NULL){
@@ -81,10 +83,9 @@ void add_layer(model_t *model, unsigned int num_neurons, const char *activation)
 
         for(unsigned int j = 0; j < num_previous_connections; j++){
 
-            new_layer->neurons[i].previous_connections[i].weight = 0.0;
+            new_layer->neurons[i].previous_connections[j].weight = 4.0;
         }
     }
-
     new_layer->activation = activation;
     new_layer->activation_function = get_activation_function(activation);
     model->num_layers++;
@@ -96,7 +97,6 @@ void add_exit_layer(model_t *model, unsigned int num_neurons, const char *activa
 
     add_layer(model, num_neurons, activation);
     // TODO Handle possible error
-
     model->is_complete = true;
 }
 

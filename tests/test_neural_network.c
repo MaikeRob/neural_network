@@ -1,4 +1,5 @@
 #include <string.h>
+#include <stdio.h>
 #include "unity/unity.h"
 #include "../headers/neural_network.h"
 
